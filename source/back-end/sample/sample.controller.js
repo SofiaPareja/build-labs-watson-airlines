@@ -4,7 +4,7 @@ const { request, response } = require("express");
 const Sample = require("./sample.schema");
 
 /**
- * Sample Controller
+ * Sample Controller for Airlines
  * @param {JSON} req request information
  * @param {JSON} res response information
  * @returns {JSON} return description
@@ -32,14 +32,14 @@ const sample = async (req = request, res = response) => {
     */
     try {
         // Your Code Goes Here!!!!
-        
+
         // Return query result
-        res.json ({
-            result : result
+        res.json({
+            result: result
         });
     } catch (error) {
-        res.json ({
-            status : error.status
+        res.json({
+            status: error.status
         });
     }
 };

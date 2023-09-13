@@ -5,21 +5,61 @@ const swagger_autogen = require("swagger-autogen")({ openapi: "3.0.0" });
 
 // Data schemas
 const mongo_specs = {
-    Sample: {
+    Airlines: {
         type: "object",
         properties: {
-            ATTRIBUTE_1: {
-                type: "string",
-            },
-            ATTRIBUTE_2: {
+            IATA_CODE: {
                 type: "number",
             },
-            ATTRIBUTE_3: {
-                type: "boolean",
+            Airline: {
+                type: "string",
+            }
+        },
+    },
+    Flights: {
+        type: "object",
+        properties: {
+            AIRLINE: {
+                type: "string",
             },
-            ATTRIBUTE_4: {
-                type: "date",
+            FLIGHT_NUMBER: {
+                type: "number",
             },
+            ORIGIN_AIRPORT: {
+                type: "string"
+            },
+            DESTINATION_AIRPORT: {
+                type: "string"
+            },
+            CANCELED: {
+                type: "boolean"
+            },
+            DEPARTURE_DATE: {
+                type: "date"
+            },
+            ARRIVAL_DATE: {
+                type: "date"
+            }
+        },
+    },
+    Airports: {
+        type: "object",
+        properties: {
+            IATA_CODE: {
+                type: "string",
+            },
+            AIRPORT: {
+                type: "string",
+            },
+            CITY: {
+                type: "string"
+            },
+            DESTISTATEATION_AIRPORT: {
+                type: "string"
+            },
+            COUNTRY: {
+                type: "string"
+            }
         },
     }
 };
@@ -58,9 +98,13 @@ const general_specs = {
 // API Routes
 // NOTE: if using Express Router, pass only the root file where the route starts.
 const api_routes = [
+    "./server.js",
+];
+
+/*const api_routes = [
     "./app.js",
     "../../server.js"
-];
+];*/
 
 // Output file path
 const output_file_path = "./docs/openapi-spec.json";
